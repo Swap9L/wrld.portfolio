@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>WRLD Portfolio Form</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #ffffff;
+            color: #000000;
+        }
+        .row{
+            height: 100vh;
+        }
+        .navbar {
+            background-color: #ff8c00; /* Poppy Orange */
+            text-align: center;
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+            margin: 0 auto;
+        }
+
+        
+
+        .navbar-toggler {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .sidebar {
+            background-color: #000000; /* Black */
+            color: #ffffff; /* White */
+            text-align: center;
+            display: none; /* Hide sidebar by default */
+        }
+
+        .sidebar-link {
+            color: #ffffff;
+            font-size: 18px;
+            padding: 10px 0;
+            display: block;
+            text-decoration: none;
+        }
+
+        .sidebar-link:hover {
+            color: #ff8c00; /* Poppy Orange */
+        }
+
+
+        @media (max-width: 768px) {
+            /* Show sidebar on smaller screens */
+            .sidebar {
+                display: block;
+            }
+        }
+
+        /* UserProfile Styling */
+        #existingInfo, #changeInfoFormContainer {
+            margin-top: 20px;
+        }
+
+        #changeInfoForm {
+            display: block;
+        }
+
+        .btn-secondary {
+            background-color: #000000; /* Black */
+            color: #ffffff; /* White */
+            border: none;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light">
+    
+    <a class="navbar-brand" href="/">WRLD</a>
+
+</nav>
+
+<!-- Sidebar -->
+<div class="container-fluid">
+    <div class="row">
+        <nav class="col-md-2 d-none d-md-block sidebar">
+            <div class="sidebar-sticky">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link sidebar-link" href="profile">User Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link sidebar-link" href="dashboard">Portfolio Data</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link sidebar-link" href="/{{userinfo.username}}">View Portfolio </a>
+                    </li>
+                    <br><br>
+                    <li class="nav-item" style="border: 1px solid orange; ">
+                        <a class="nav-link sidebar-link" href="/logout" >Logout </a>
+                    </li>   
+                    <!-- Add additional sidebar links as needed -->
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Content Area -->
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+            <div class="container mt-5">
+                <!-- UserProfile Section -->
+                <section id="UserProfile">
+    <h2>User Profile</h2>
+
+    <!-- Display Existing Information -->
+    <div id="existingInfo">
+        <p><strong>Username : </strong> {{userinfo.username}} </p>
+        <p><strong>Email : </strong> {{userinfo.email}} </p>
+    </div>
+
+    <!-- Change Information Form -->
+    <div id="changeInfoFormContainer">
+        <h3>Change Information</h3>
+        <form id="changeInfoForm" action="/profile" method="POST" >
+            <!-- Change Username Section -->
+            <div class="form-group">
+                <label for="newUsername">New Username:</label>
+                <input type="text" class="form-control" id="newUsername" name="newUsername" required>
+            </div>
+
+            <!-- Change Email Section -->
+            <div class="form-group">
+                <label for="newEmail">New Email:</label>
+                <input type="email" class="form-control" id="newEmail" name="newEmail" required>
+            </div>
+
+            <!-- Current Password Section for Authentication -->
+            <div class="form-group">
+                <label for="currentPassword">New Password:</label>
+                <input type="password" class="form-control" id="newPassword" name="newPassword" required>
+            </div>
+
+            <div class="form-group">
+                <label for="currentPassword">Current Password:</label>
+                <input type="password" class="form-control" id="currentPassword" name="password" required>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn btn-primary" >Save Changes</button>
+        </form>
+    </div>
+</section>
+            </div>
+        </main>
+    </div>
+</div>
+
+<!-- Bootstrap JS and Popper.js -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Custom JavaScript -->
+<script>
+    
+    
+</script>
+
+</body>
+</html>

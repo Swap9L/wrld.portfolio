@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>W R L D . Portfolio Form</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #ffffff;
+            color: #000000;
+        }
+
+        .navbar {
+            background-color: #ff8c00; /* Poppy Orange */
+            text-align: center;
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+            margin: 0 auto;
+        }
+
+        
+
+        .navbar-toggler {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .sidebar {
+            background-color: #000000; /* Black */
+            color: #ffffff; /* White */
+            text-align: center;
+            display: none; /* Hide sidebar by default */
+        }
+
+        .sidebar-link {
+            color: #ffffff;
+            font-size: 18px;
+            padding: 10px 0;
+            display: block;
+            text-decoration: none;
+        }
+        .sidebar-link:hover {
+            color: #ff8c00; /* Poppy Orange */
+        }
+        @media (max-width: 768px) {
+            /* Show sidebar on smaller screens */
+            .sidebar {
+                display: block;
+            }
+
+            .btn btn-primary {
+                display: block;
+            }
+
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light">
+    <a class="navbar-brand" href="/">WRLD</a>
+    
+    
+</nav>
+
+<!-- Sidebar -->
+<div class="container-fluid">
+    <div class="row">
+        <nav class="col-md-2 d-none d-md-block sidebar">
+            <div class="sidebar-sticky">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link sidebar-link" href="profile">User Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link sidebar-link" href="dashboard">Portfolio Data</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link sidebar-link" href="/{{user.username}}">View Portfolio </a>
+                    </li>
+                    <br><br>
+                    <li class="nav-item" style="border: 1px solid orange; ">
+                        <a class="nav-link sidebar-link" href="/logout">Logout </a>
+                    </li>
+                    <!-- Add additional sidebar links as needed -->
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Content Area -->
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+            <div class="container mt-5">
+                <h2 class="mb-4">Portfolio Information</h2>
+
+    <!-- Portfolio Form -->
+    <form class="form" method="POST" action="/dashboard" enctype="multipart/form-data" >
+        <!-- Personal Information Section -->
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" value="{{info.name}}" class="form-control" id="name" name="name" required>
+        </div>
+
+        <div class="form-group">
+            <label for="title">Title:</label>
+            <input type="text" value="{{info.title}}" class="form-control" id="title" name="title" required>
+        </div>
+
+        <div class="form-group">
+            <label for="introduction">Introduction:</label>
+            <textarea type="text" class="form-control"   value="" id="introduction" name="introduction" rows="3" required>{{info.intro}}</textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="contact">Contact:</label>
+            <input type="text" value="{{info.contact}}" class="form-control" id="contact" name="contact" required>
+        </div>
+
+        <!-- User Picture -->
+        
+        <div class="form-group">
+            <label for="userPicture">User Picture:</label>
+            <input type="file" value="{{img}}" class="form-control-file" id="userPicture" name="userPicture" required>
+            <img style="width: 250px; margin-top: 10px; padding: 2px;" src="data:image/jpg;base64,{{img}}" alt="">
+        </div>
+
+        <!-- LinkedIn URL -->
+        <div class="form-group">
+            <label for="linkedinUrl">LinkedIn URL:</label>
+            <input type="text"  value="{{info.url}}" class="form-control" id="linkedinUrl" name="url" required>
+        </div>
+        {% if not eduinfo %}
+        <section id="education" >
+            <br>
+            <hr>
+                    <!-- Education Section -->
+                    <div class="form-group">
+                        <label for="degree" style="font-size: 23px; margin: 20px 0px;"><strong>Education :</strong></label><br>
+                        <label for="Degree ">Degree </label>
+                        <input type="text" class="form-control" id="degree" name="degree" value="" required>
+                    </div>
+            
+                    <div class="form-group">
+                        <label for="institution">Institution:</label>
+                        <input type="text" class="form-control" id="institution" name="clg" value="" required> 
+                    </div>
+            
+                    <div class="form-group">
+                        <label for="graduationDate">Graduation Date:</label>
+                        <input type="date" class="form-control" id="graduationDate" value="" name="passdate" value="" required> 
+                    </div>
+            
+                    <div class="form-group">
+                        <label for="educationDescription">Education Description:</label>
+                        <textarea class="form-control" id="educationDescription" name="eduinfo" rows="3" required>  </textarea>
+                    </div>
+                
+                
+        </section>
+        {% endif %}
+
+
+        {% if eduinfo %}
+        <section id="education" >
+            <br>
+            <hr>
+                    <!-- Education Section -->
+                    <div class="form-group">
+                        <label for="degree" style="font-size: 23px; margin: 20px 0px;"><strong>Education :</strong></label><br>
+                        <label for="Degree ">Degree </label>
+                        <input type="text" class="form-control" id="degree" name="degree" value="{{eduinfo.degree}}" required>
+                    </div>
+            
+                    <div class="form-group">
+                        <label for="institution">Institution:</label>
+                        <input type="text" class="form-control" id="institution" name="clg" value="{{eduinfo.institution}}" required> 
+                    </div>
+            
+                    <div class="form-group">
+                        <label for="graduationDate">Graduation Date:</label>
+                        <input type="date" class="form-control" id="graduationDate" value="{{eduinfo.date}}" name="passdate" value="{{eduinfo.date}}" required> 
+                    </div>
+            
+                    <div class="form-group">
+                        <label for="educationDescription">Education Description:</label>
+                        <textarea class="form-control" id="educationDescription" name="eduinfo" rows="3" required> {{eduinfo.des}} </textarea>
+                    </div>
+                
+                
+            </section>
+        {% endif %}
+
+
+
+       <!-- Submit Button -->
+       <button style="margin: 0px auto; margin-left: 500px; margin-bottom: 50px;"  type="submit" class="btn btn-primary">Submit</button>
+        
+        <!-- Skills Section -->
+    <section id="skill">
+        <hr>
+        <br>
+    </form>
+    
+    <form class="form" method="POST" action="/skillsinfo" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="skills" style="font-size: 24px; margin: 50px 0px;" ><strong>Skills :</strong></label>
+            <div id="skillsContainer" style="display: flex; ">
+
+                <div style="margin-right: 10px; width: 30%;">
+
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" value="" name="skill1" placeholder="Enter skill" required>
+                        
+                    </div>
+
+
+                    
+
+                </div> 
+                
+                <div style="width: 10%;">
+                    <!-- Submit Button -->
+                <button style="margin: 0px auto; margin-left: 10px; margin-bottom: 50px;"  type="submit" class="btn btn-primary">Add Skill</button>
+                <br><br><br>
+                
+                    
+
+                </div>
+            {% if skillinfo %}
+                <div>
+                    <a style="margin: 0px auto;padding: 5px 25px; margin-left: 10px; margin-bottom: 50px;"  type="submit" class="btn btn-primary" href="/dashboard/clearskills">
+                        Clear
+                    </a>
+                </div>
+
+                <div style="width: 50%; margin-left: 50px; display: flex; justify-content: space-between; flex-wrap: wrap;">
+                    
+                        {% for skillinfo in skillinfo [::] %}
+                        <div class="input-group mb-3" style="width: 250px;">
+                            <input type="text" class="form-control" value="{{skillinfo.skill_name}}" name="skill" placeholder="Enter skill" required>
+                        
+                        </div>
+                        {%endfor%}
+                    
+                        
+                </div>
+            
+            </div>
+            {%endif%}
+        </div>
+    </form>
+    </section> 
+    
+    <section id="projects" >
+        <hr>
+        <br>
+        <!-- Projects Section -->
+    <form class="form" method="POST" action="/projectinfo" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="projects" style="font-size: 23px; margin: 50px 0px;"><strong>Projects :</strong></label>
+            <div id="projectsContainer">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" name="projectName" placeholder="Enter project name" required>
+                    <input type="text" class="form-control" name="projectDescription" placeholder="Enter project description" required>
+                    <input type="file" class="form-control" name="projectImage" placeholder="Enter project image URL" required>
+                    
+                </div>
+                <button style="margin: 0px auto; margin-left: 10px; margin-bottom: 50px;"  type="submit" class="btn btn-primary">Add Project</button>
+                
+                {% if projectinfo %}
+                
+                <a style="margin: 0px auto;padding: 5px 25px; margin-left: 390px; margin-bottom: 50px;"  type="submit" class="btn btn-primary" href="/dashboard/clearproj">
+                    Clear
+                </a>
+                <div style=" display: flex; justify-content: space-evenly; flex-wrap: wrap;">
+
+                    
+                    
+                        {% for projectinfo in projectinfo[::] %}
+                        {% set pimg = images[loop.index0] %}
+                            
+                            <div>
+                               
+                                <input type="text" class="form-control" name="" value="{{projectinfo.pname}}" >
+                                <textarea type="text" class="form-control" name="" value="" style="height: 250px;">{{projectinfo.pinfo}}</textarea>
+                                <img style=" opacity: 10%; width: 210px; z-index: 1; position: relative; top: -210px;" src="data:image/jpg;base64,{{pimg}}" alt="">
+                            </div>
+                                                    
+                        
+                        {%endfor%}
+                    
+                    
+                </div>
+                {%endif%}
+
+                
+    </form>
+                
+                
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" >
+        <br>
+        <hr>
+        <br>
+    <form class="form" method="POST" action="/expinfo" enctype="multipart/form-data">
+         <div class="form-group">
+            <label for="experience" style="font-size: 23px; margin: 50px 0px;" ><strong>Experience :</strong></label>
+            <div id="experienceContainer">
+                <div class="input-group mb-3">
+                    
+                    <input type="text" class="form-control" name="title" placeholder="Enter job title" required>
+                    <input type="text" class="form-control" name="org" placeholder="Enter company name" required>
+                    <input type="text" class="form-control" name="des" placeholder="Enter experience description" required>
+                    <input  type="text" class="form-control" name="year" placeholder="Enter Duration : Year 2020-2022  " required>
+                    
+                </div>
+                
+
+                <button style="margin: 0px auto; margin-left: 10px; margin-bottom: 50px;"  type="submit" class="btn btn-primary">Add Experience</button>
+
+                
+            {% if expinfo %}
+                
+            <a style="margin: 35px auto;padding: 5px 25px; margin-left: 390px; margin-bottom: 50px;"  type="submit" class="btn btn-primary" href="/dashboard/clearexp">
+                Clear
+            </a>
+            <div style=" display: flex; justify-content: space-evenly; flex-wrap: wrap;">
+
+                <div class="input-group mb-3">
+                    
+                    <input type="text" class="form-control" name="title" value="Job Title" style=" font-weight: bold; width: 10%;">
+                    <input type="text" class="form-control" name="org" value="Company Name" style="font-weight: bold; width: 7%; " >
+                    <input type="text" class="form-control" name="des" value="Year" style="font-weight: bold; width:3%; " >
+                    <input type="text" class="form-control" name="year" value="Description" style="font-weight: bold; width: 40%;" >
+                    
+                </div>
+                
+                    {% for expinfo in expinfo [::] %}
+                    
+                    <div class="input-group mb-3">
+                        
+                        <input type="text" class="form-control" name="title" value="{{expinfo.job_title}}" style="  width: 10%;">
+                        <input type="text" class="form-control" name="org" value="{{expinfo.company_name }}" style=" width: 7%; " >
+                        <input type="text" class="form-control" name="des" value="{{expinfo.year}}" style=" width:3%; " >
+                        <input type="text" class="form-control" name="year" value="{{expinfo.description}}" style=" width: 40%;" >
+                        
+                    </div>
+                        
+
+        
+                    {%endfor%}
+                
+                
+            </div>
+            {%endif%}
+
+            </div>
+
+        </div>
+
+        
+
+    </form>
+</section>
+<br><br><br><br><br><br><br><br><br><br><hr><br><br><br>
+
+</div>
+
+<!-- Bootstrap JS and Popper.js -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+    // Add More functionality for skills and projects
+    $(document).ready(function() {
+        $(".addMore").click(function() {
+            let container = $(this).closest(".form-group").find(".input-group");
+            let clone = container.clone(true);
+            clone.find("input").val("");
+            container.after(clone);
+        });
+    });
+</script>
+
+</body>
+</html>

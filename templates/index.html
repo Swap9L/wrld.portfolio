@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>W R L D </title>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="../static/css/style2.css">
+</head>
+
+<body>
+    <div class="site-main-wrapper">
+        <button class="hamberger" style=" width: 100%;  ">
+            <a href="/" style="text-decoration: none;"> <span style=" margin-right: 80px ; padding-left: 60px ; font-size: 40px; color: #3dcfd3;" > W R L D</h1></span></a> 
+            <img style="margin-left: 40px; margin-top: 10px;" src="./images/hamberger.svg" alt="">
+        </button>
+    
+        <div class="mobile-nav">
+            
+            <button class="times"><img src="../static/times.svg" alt=""></button>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#mywork">My Work</a></li>
+            </ul>
+        </div>
+        <header>
+            <div class="container">
+                <nav id="main-nav"  class="flex items-center justify-between">
+                    <div class="left flex items-center">
+                        <div class="branding">
+                            <a href="/">
+                            <h1 style="font-size: 50px; margin-top: 5px; color: #3dcfd3;">W R L D</h1>
+                            <img src="./images/logo.svg" alt="">
+                        </a>
+                        </div>
+                        <div>
+                            <a href="#">Home</a>
+                            <a href="#about">About</a>
+                            <a href="#skills">Skills</a>
+                            <!-- <a href="#projects">Projects</a> -->
+                            <a href="#mywork">My Work</a>
+                            <a href="#contact">Contact</a>
+                        </div>
+                    </div>
+                    
+                    <!-- {% if session[] != user  %}
+                            <div class="right">
+                                <a href="login"><button class="btn btn-primary">login</button></a>
+                            </div>
+                    {%endif%}         -->
+                    
+                    {% if 'user' in session and session['user']==username %}
+                            <div class="right">
+                                <a href="dashboard"><button class="btn btn-primary">Dashboard</button></a>
+                            </div>
+                    {%endif%}
+                            
+                </nav>
+                <div class="hero flex items-center justify-between">
+                    
+                    <div class="right flex-1">
+                        <h6>{{info.name}}</h6>
+                        <h1>I’m a <span>{{info.title}}</span></h1>
+                        <p> {{info.intro}} </p>
+                        <div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <section id="about" class="about">
+            <div class="container flex items-center about-inner-wrap">
+                <div class="flex-1">
+                    <img class="about-me-img" src="data:image/jpg;base64,{{img}}" alt="">
+                </div>
+                <div class="flex-1 right">
+                    <h1>About <span>Me</span></h1>
+                    <h3>Hello i’m {{user.username}} </h3>
+                    <p>{{info.intro}} </p>
+                    <div class="social">
+                        <a href="#"></a>
+                        <a href="#education"></a>
+                        <a href="#skills"> </a>
+                        <a href="#mywork"> </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="education" class="services">
+            <div class="container">
+                
+
+
+                <h1 class="section-heading"><span>My </span>Education</h1>
+                <p>We provide high standard Portfolio website for your business & Employment. </p>
+                <div class="card-wrapper">
+                   
+                    <div class="card">
+                        <img src="../static/edu.png" alt="">
+                        <h2>{{eduinfo.degree}}</h2>
+                        <p> | - {{eduinfo.institution}} -  | </p>
+                        <p>{{eduinfo.des}}</p>
+                        <p style="font-size: medium;">  {{eduinfo.date}}  </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <section class="Ads">
+            <h1>Register now to create your own Portfolio website.</h1>
+            <p>We provide high standard Portfolio website for your business & Employment.</p>
+            
+        </section>
+
+        <section class="skills" id="skills">
+            <div style="text-align: center;">
+                <h2  class="section-title">S K I L L S</h2>
+                
+                
+            </div>
+            <div class="skills__container bd-grid" style=" display: flex; justify-content: space-around; flex-wrap: wrap; ">          
+                
+                    
+                    {% for skillinfo in skillinfo [::] %}
+                    
+                    <div class="skills__data" >
+                        <div class="skills__names" >
+                            
+                            <span class="skills__name" style="width: 250px; text-align: center;">{{skillinfo.skill_name}}</span>
+                        </div>
+                        <div class="skills__bar skills__html">
+
+                        </div>
+                        
+                        
+                    </div>
+                    {%endfor%}
+                    
+
+                    
+                
+            </div>
+        </section>
+
+        <section id="experience" class="reviews">
+            <div class="container">
+                <h1 class="section-heading"><span>My</span> Experience</h1>
+                <!-- <p>We provide high standard Portfolio website for your business & Employment. </p> --> <br><br>
+                <div class="slider">
+                    {% for expinfo in expinfo %}
+                        <div class="slide">
+                            <h2> {{ expinfo.job_title }} </h2>
+                            <h4>- {{expinfo.company_name}} .</h4><br>
+                            <p>" {{expinfo.description}} "</p>
+                            <h4><span>{{expinfo.year}} </span></h4>
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="slider-dots"></div>
+            </div>
+        </section>
+<!-- 
+        <section id="projects" class="work">
+            <div class="container">
+                <h1 class="section-heading"><span>My</span> Projects</h1>
+                <p>We provide high standard Portfolio website for your business & Employment. </p>
+
+                <div class="card-wrapper">
+                    <div class="card">
+                        <div class="overlay">
+                            <span>Category</span>
+                            <a href="#">Web development</a>
+                        </div>
+                        <img src="../static/ph-1.png" alt="">
+                    </div>
+                    <div class="card">
+                        <div class="overlay">
+                            <span>Category</span>
+                            <a href="#">Web development</a>
+                        </div>
+                        <img src="../static/ph-1.png" alt="">
+                    </div>
+                    <div class="card">
+                        <div class="overlay">
+                            <span>Category</span>
+                            <a href="#">Web development</a>
+                        </div>
+                        <img src="../static/ph-1.png" alt="">
+                    </div>
+                    <div class="card">
+                        <div class="overlay">
+                            <span>Category</span>
+                            <a href="#">Web development</a>
+                        </div>
+                        <img src="../static/ph-1.png" alt="">
+                    </div>
+                    <div class="card">
+                        <div class="overlay">
+                            <span>Category</span>
+                            <a href="#">Web development</a>
+                        </div>
+                        <img src="../static/ph-1.png" alt="">
+                    </div>
+                    <div class="card">
+                        <div class="overlay">
+                            <span>Category</span>
+                            <a href="#">Web development</a>
+                        </div>
+                        <img src="../static/ph-1.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </section> -->
+        <section id="mywork" class="blog">
+            <div class="container">
+                <h1 class="section-heading"><span>My</span> Work</h1>
+                <p>We provide high standard Portfolio website for your business & Employment. </p>
+
+                <div class="card-wrapper">
+
+                {% for projectinfo in projectinfo[::] %}
+                {% set pimg = images[loop.index0] %}
+                    <div class="card">
+                        <div class="img-wrapper">
+                            <img src="data:image/jpg;base64,{{pimg}}" alt="">
+                        </div>
+                        <div class="card-content">
+                            <a href="#">
+                                <h1>{{projectinfo.pname}}</h1>
+                            </a>
+                            <span>Jan 7, 2024</span>
+                            <p>{{projectinfo.pinfo}}</p>
+                            
+                        </div>
+                    
+                    </div>
+                {%endfor%}
+                <!--<div class="card">
+                        <div class="img-wrapper">
+                            <img src="../static/article-ph-1.png" alt="">
+                        </div>
+                        <div class="card-content">
+                            <a href="#">
+                                <h1>Occusamus et iusto odio</h1>
+                            </a>
+                            <span>Jan 7, 2024</span>
+                            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                                nulla
+                                pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                                deserunt
+                                mollit anim id est laborum.</p>
+                            
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="img-wrapper">
+                            <img src="../static/article-ph-1.png" alt="">
+                        </div>
+                        <div class="card-content">
+                            <a href="#">
+                                <h1>Occusamus et iusto odio</h1>
+                            </a>
+                            <span>Jan 7, 2024</span>
+                            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                                nulla
+                                pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                                deserunt
+                                mollit anim id est laborum.</p>
+                            
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        </section>
+        <section id="contact" class="contact">
+            <div class="container">
+                <h1 class="section-heading">Contact <span>Me</span></h1>
+                <p>High standard Portfolio website for your business & Employment purpose. </p>
+                <div class="card-wrapper">
+                    <div class="card">
+                        <img src="../static/phone-2.svg" alt="">
+                        <h1>Call Me On</h1>
+                        <a href="tel:{{info.contact}}"> <h6> {{info.contact}}</h6></a>
+                    </div>
+                    <div class="card">
+                        <img src="../static/msg.svg" alt="">
+                        <h1>Email Me At</h1>
+                        <a href="mailto:{{user.email}}"><h6>{{user.email}}</h6></a>
+                    </div>
+                    <div class="card">
+                        <img src="../static/map.svg" alt="">
+                        <h1>Visit LinkedIn</h1>
+                        <a href="{{info.url}}" target="_blank" ><h6>{{info.url}}</h6></a>
+                    </div>
+
+                </div>
+
+                <!-- <form action="/index.html" method="POST">
+                    <div class="input-wrap">
+                        <input type="text" placeholder="Your Name *">
+                        <input type="email" placeholder="Your Email *">
+                    </div>
+                    <div class="input-wrap-2">
+                        <input type="text" placeholder="Your Subject...">
+                        <textarea name="" id="" cols="30" rows="10" placeholder="Your Message..."></textarea>
+                    </div>
+                    <div class="btn-wrapper">
+                        <button class="btn btn-primary">Send Message</button>
+                    </div>
+                </form> -->
+            </div>
+        </section>
+        <footer>
+            
+            <a href="#" style="text-decoration: none;"><h1 style="color: #3dcfd3; font-size: 70px;" > W R L D</h1></a>
+            <div class="footer-socials">
+                <a href="#"><img src="../static/" alt=""></a>
+                <a href="https://www.facebook.com/"><img src="../static/" alt=""></a>
+                <a href="https://twitter.com/D0Swapnil"> <img src="../static/" alt=""></a>
+                <a href="#"> <img src="./images/pintrest.svg" alt=""></a>
+                <a href="https://www.instagram.com/"> <img src="../static/" alt=""></a>
+            </div>
+            <div class="copyright">
+                Copyright 2020 © 9 9 9 . W R L D 
+            </div>
+        </footer>
+    </div>
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="../static/app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>WRLD Portfolio Form</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #ffffff;
+            color: #000000;
+        }
+
+        .navbar {
+            background-color: #ff8c00; /* Poppy Orange */
+        }
+
+        .navbar-brand {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .sidebar {
+            background-color: #000000; /* Black */
+            color: #ffffff; /* White */
+        }
+
+        .sidebar-link {
+            color: #ffffff;
+        }
+
+        .sidebar-link:hover {
+            color: #ff8c00; /* Poppy Orange */
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light">
+    <a class="navbar-brand" href="#">WRLD</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <!-- Add your navbar links or buttons here -->
+        </ul>
+    </div>
+</nav>
+
+<!-- Sidebar -->
+<div class="container-fluid">
+    <div class="row">
+        <nav class="col-md-2 d-none d-md-block sidebar">
+            <div class="sidebar-sticky">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link sidebar-link" href="#UserProfile">User Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link sidebar-link" href="#PortfolioData">Portfolio Data</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link sidebar-link" href="#viewPortfolio">view Portfolio</a>
+                    </li>
+                    <!-- Add additional sidebar links as needed -->
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Content Area -->
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+            <div class="container mt-5">
+                <h2 class="mb-4">Portfolio Information</h2>
+
+    <!-- Portfolio Form -->
+    <form>
+        <!-- Personal Information Section -->
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" class="form-control" id="name" name="name" required>
+        </div>
+
+        <div class="form-group">
+            <label for="title">Title:</label>
+            <input type="text" class="form-control" id="title" name="title">
+        </div>
+
+        <div class="form-group">
+            <label for="introduction">Introduction:</label>
+            <textarea class="form-control" id="introduction" name="introduction" rows="3"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="contact">Contact:</label>
+            <input type="text" class="form-control" id="contact" name="contact">
+        </div>
+
+        <!-- User Picture -->
+        <div class="form-group">
+            <label for="userPicture">User Picture:</label>
+            <input type="file" class="form-control-file" id="userPicture" name="userPicture">
+        </div>
+
+        <!-- LinkedIn URL -->
+        <div class="form-group">
+            <label for="linkedinUrl">LinkedIn URL:</label>
+            <input type="text" class="form-control" id="linkedinUrl" name="Url">
+        </div>
+        <hr/>
+<!-- Skills Section -->
+        <div class="form-group">
+            <label for="skills">Skills:</label>
+            <div id="skillsContainer">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" name="skills[]" placeholder="Enter skill">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary addMore" type="button">Add More</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Projects Section -->
+        <div class="form-group">
+            <label for="projects">Projects:</label>
+            <div id="projectsContainer">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" name="projectNames[]" placeholder="Enter project name">
+                    <input type="text" class="form-control" name="projectDescriptions[]" placeholder="Enter project description">
+                    <input type="file" class="form-control" name="projectImages[]" placeholder="Enter project image URL">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary addMore" type="button">Add More</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+         <div class="form-group">
+            <label for="experience">Experience:</label>
+            <div id="experienceContainer">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" name="jobTitles[]" placeholder="Enter job title">
+                    <input type="text" class="form-control" name="companyNames[]" placeholder="Enter company name">
+                    <input type="text" class="form-control" name="experienceDescriptions[]" placeholder="Enter experience description">
+                    <input type="text" class="form-control" name="startAndEndDates[]" placeholder="Enter start and end dates (e.g., 2020-2022)">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary addMore" type="button">Add More</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+<hr/>
+        <!-- Education Section -->
+        <div class="form-group">
+            <label for="degree">Degree:</label>
+            <input type="text" class="form-control" id="degree" name="degrees[]">
+        </div>
+
+        <div class="form-group">
+            <label for="institution">Institution:</label>
+            <input type="text" class="form-control" id="institution" name="institutions[]">
+        </div>
+
+        <div class="form-group">
+            <label for="graduationDate">Graduation Date:</label>
+            <input type="date" class="form-control" id="graduationDate" name="graduationDates[]">
+        </div>
+
+        <div class="form-group">
+            <label for="educationDescription">Education Description:</label>
+            <textarea class="form-control" id="educationDescription" name="educationDescriptions[]" rows="3"></textarea>
+        </div>
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+<!-- Bootstrap JS and Popper.js -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+    // Add More functionality for skills and projects
+    $(document).ready(function() {
+        $(".addMore").click(function() {
+            let container = $(this).closest(".form-group").find(".input-group");
+            let clone = container.clone(true);
+            clone.find("input").val("");
+            container.after(clone);
+        });
+    });
+</script>
+
+</body>
+</html>
