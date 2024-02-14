@@ -164,42 +164,29 @@
             </div>
             <div class="card-container" style="">
                 <div class="card">
-                  <img src="data:image/jpg;base64," alt="Card Image 1" />
+                  <img src="data:image/jpg;base64,{{img}}" alt="Card Image 1" />
                   <div class="card-content">
-                    <h2>{{info.url}}</h2>
-                    <h3> {{info.email}} </h3>
-                    <p class="card-description">Goa is one of the most favorite destination among Indian tourists due to its pristine beaches.The incredible coastline of more than 100 km offers beautiful views and serenity where tourists enjoy and relax in the Sun.</p>
-                    <button class="show-more" onclick=" window.location.href ='/location2.html'">Visit</button>
+                    <h2>{{info.name}}</h2>
+                    <h3> {{info.title}} </h3>
+                    <p class="card-description">{{info.intro}}</p>
+                    <button class="show-more" onclick=" window.location.href ='/{{user.username}}'">Visit</button>
                   </div>
                 </div>
+
+
                 <div class="card">
-                    <img src="../static/media/card4.jpg" alt="Card Image 4" />
+                    <img src="data:image/jpg;base64,{{img2}}" alt="Card Image 1" />
                     <div class="card-content">
-                      <h2>Prambanan Temple</h2>
-                      <h3>Indonesia</h3>
-                      <p class="card-description">3. 9th century Prambanan Temple in Indonesia decorated with reliefs illustrating the epic of the Ramayana.The Prambanan temple is the largest Hindu temple of ancient Java, and the first building was completed in the mid-9th century.</p>
-                      <button class="show-more" onclick=" window.location.href ='/location1.html'" >Show More</button>
+                      <h2>{{info2.name}}</h2>
+                      <h3> {{info2.title}} </h3>
+                      <p class="card-description">{{info2.intro}}</p>
+                      <button class="show-more" onclick=" window.location.href ='/NFT'">Visit</button>
                     </div>
-                  </div>
+                </div>
                 
-                <div class="card">
-                  <img src="../static/media/card3.jpg" alt="Card Image 3" />
-                  <div class="card-content">
-                    <h2>Devkund Waterfall </h2>
-                    <h3>Raigad Maharashtra</h3>
-                    <p class="card-description">Devkund Waterfall is a waterfall located near Bhira, in Raigad district, Maharastra, India. It is a 'plunge' waterfall pouring massive amounts of water on the rocky surface underneath. It is a popular spot for one day picnics.</p>
-                    <button class="show-more" onclick=" window.location.href ='/location3.html'" >Show More</button>
-                  </div>
-                </div>
-                <div class="card">
-                    <img src="../static/media/card2.jpg" alt="Card Image 2" />
-                    <div class="card-content">
-                      <h2>Tanah Lot Temple</h2>
-                      <h3>Bali, Indonesia</h3>
-                      <p class="card-description">Situated on a beautiful offshore rock,  It is home to the ancient Hindu pilgrimage temple Pura Tanah Lot, One of the most famous Hindu Temples in Bali, Indonesia and probably the most photographed around the World !!</p>
-                      <button class="show-more" onclick=" window.location.href ='/location4.html'" >Show More</button>
-                    </div>
-                  </div>
+                
+               
+                
 
             </div>
         </div>
