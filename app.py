@@ -20,7 +20,7 @@ userLogin=False
 class Users(db.Model):
     user_id=db.Column(db.Integer, primary_key=True)
     username=db.Column(db.String(200), nullable=False)
-    email=db.Column(db.String(30), nullable=False)
+    email=db.Column(db.String(50), nullable=False)
     password=db.Column(db.String(50), nullable=False)
 
     
@@ -28,9 +28,9 @@ class Portfolio(db.Model):
     pid=db.Column(db.Integer, primary_key=True)
     user_id=db.Column(db.Integer, nullable=False)
     # uid=db.Column(db.Integer, db.foreignKey('users.user_id'), nullable=False)
-    name=db.Column(db.String(25), nullable=False)
+    name=db.Column(db.String(50), nullable=False)
     title=db.Column(db.String(20), nullable=False)
-    intro=db.Column(db.String(250), nullable=False)
+    intro=db.Column(db.String(500), nullable=False)
     contact=db.Column(db.String(15), nullable=False)
     pic=db.Column(db.LargeBinary, nullable=False)
     url=db.Column(db.String(50), nullable=False)
@@ -46,13 +46,14 @@ class Education(db.Model):
     degree=db.Column(db.String(50),nullable=False )
     institution=db.Column(db.String(25), nullable=False)
     date=db.Column(db.DateTime, nullable=False)
-    des=db.Column(db.String(250), nullable=False)
+    des=db.Column(db.String(500), nullable=False)
 
 class Projects(db.Model):
     project_id=db.Column(db.Integer, primary_key=True)
     pid=db.Column(db.Integer, nullable=False)
     pname=db.Column(db.String(50), nullable=False)
-    pinfo=db.Column(db.String(150), nullable=False)
+    link=db.Column(db.String(100), nullable=False)
+    pinfo=db.Column(db.String(500), nullable=False)
     pimg=db.Column(db.LargeBinary, nullable=False)
 
 class Experience(db.Model):
@@ -61,7 +62,7 @@ class Experience(db.Model):
     job_title=db.Column(db.String(50), nullable=False)
     company_name=db.Column(db.String(50), nullable=False)
     year=db.Column(db.String(50), nullable=False)
-    description=db.Column(db.String(250), nullable=False)
+    description=db.Column(db.String(500), nullable=False)
 
 class Msg(db.Model):
     msgid=db.Column(db.Integer, primary_key=True)
