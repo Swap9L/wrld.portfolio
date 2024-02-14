@@ -341,6 +341,7 @@ def dashboard():
 
                 db.session.add(addedu)
                 db.session.commit()
+                return redirect('/dashboard') 
             else:
                 newdegree=request.form['degree']
                 newclg=request.form['clg']
