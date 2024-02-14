@@ -21,7 +21,7 @@ html{
     left: 0;
     height: 60px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: end;
 }
 
@@ -922,6 +922,7 @@ to {background: url("bg4.jpg");}
 
 @media (max-width:600px){
     #navbar .logo span{
+        margin-left: 25px;
         font-size: 1.8rem;
     }
     
