@@ -518,14 +518,14 @@ def projectinfo():
             
         projname=request.form['projectName']
         link=request.form['link']
-        projinfo=request.form['projectDescription']
+        prinfo=request.form['projectDescription']
         projimg=request.files['projectImage'].read()
             
         projectcheck=Projects.query.filter_by(pid=info.pid).first()
         if not projectcheck:
             pass
         
-        addproj=Projects(pid=info.pid, pname=projname, link=link , pinfo=projinfo, pimg=projimg)
+        addproj=Projects(pid=info.pid, pname=projname, link=link , pinfo=prinfo, pimg=projimg)
         db.session.add(addproj)
             
         db.session.commit()
