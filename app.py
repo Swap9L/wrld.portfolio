@@ -91,8 +91,12 @@ class Msg(db.Model):
 # db.session.commit()
 @app.route('/', methods=['GET'])
 def home():
-    info=Portfolio.query.all()
-    return render_template('home.html', info=info)
+    info=Portfolio.query.first()
+    info2=Portfolio.query.filter_by(title='FaZe Banks').first()
+    img2=base64.b64encode(info2.pic).decode("utf-8")
+    carduser=Users.query.filter_by(user_id=info.user_id).first()
+    img=base64.b64encode(info.pic).decode("utf-8")
+    return render_template('home.html', info=info, info2=info2, img=img, user=carduser, img2=img2)
 
 @app.route('/form', methods=['Get','POST'])
 def form():
