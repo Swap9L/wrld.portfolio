@@ -21,7 +21,7 @@ html{
     left: 0;
     height: 60px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: end;
     /* z-index: 999; */
 }
@@ -707,6 +707,7 @@ html{
 
 @media (max-width:600px){
     #navbar .logo span{
+        margin-left: 25px;
         font-size: 1.5rem;
     }
     
