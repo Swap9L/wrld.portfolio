@@ -7,7 +7,7 @@ $('.slider').slick({
 });
 
 
-let hamberger = document.querySelector('.hamberger');
+let hamberger = document.querySelector('.jod');
 let times = document.querySelector('.times');
 let mobileNav = document.querySelector('.mobile-nav');
 
