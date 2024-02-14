@@ -574,7 +574,7 @@ footer .copyright{
         clip-path: polygon(0 0, 100% 0, 100% 100%, 27% 89%, 0 100%);
     }
     section.about .about-me-img{
-        height: 360px;
+        height: 100%;
     }
     section.services .card-wrapper{
         grid-template-columns: repeat(2, 1fr);
