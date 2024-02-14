@@ -522,8 +522,8 @@ to {background: url("bg4.jpg");}
 
 #services .container .card-container{
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-around;
+    align-items: stretch;
     flex-wrap: wrap;
     /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
     
@@ -532,7 +532,8 @@ to {background: url("bg4.jpg");}
 #services .container .card-container .card{
     width: 21vw;
     display: flex;
-    background-color: #fff;
+    background-color: #ebebeb2e;
+    backdrop-filter: blur(25px);
     justify-content: center;
     align-items: start;
     flex-direction: column;
