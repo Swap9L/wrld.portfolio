@@ -28,7 +28,7 @@ class Portfolio(db.Model):
     pid=db.Column(db.Integer, primary_key=True)
     user_id=db.Column(db.Integer, nullable=False)
     # uid=db.Column(db.Integer, db.foreignKey('users.user_id'), nullable=False)
-    name=db.Column(db.String(50), nullable=False)
+    name=db.Column(db.String(100), nullable=False)
     title=db.Column(db.String(20), nullable=False)
     intro=db.Column(db.String(500), nullable=False)
     contact=db.Column(db.String(15), nullable=False)
