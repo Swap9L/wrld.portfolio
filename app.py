@@ -517,6 +517,7 @@ def projectinfo():
     if request.method == "POST":
             
         projname=request.form['projectName']
+        link=request.form['link']
         projinfo=request.form['projectDescription']
         projimg=request.files['projectImage'].read()
             
@@ -524,7 +525,7 @@ def projectinfo():
         if not projectcheck:
             pass
         
-        addproj=Projects(pid=info.pid, pname=projname, pinfo=projinfo, pimg=projimg)
+        addproj=Projects(pid=info.pid, pname=projname, link=link , pinfo=projinfo, pimg=projimg)
         db.session.add(addproj)
             
         db.session.commit()
